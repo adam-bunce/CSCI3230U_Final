@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -18,7 +19,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping("/customers")
+    @GetMapping("/customers/list")
     public String viewCustomers(Model model) {
         model.addAttribute("customers", this.customerService.getAllCustomers());
         return "/customers/list";
@@ -36,5 +37,24 @@ public class CustomerController {
         return "redirect:/customers/list";
     }
 
+    @PostMapping("/delete-customer")
+    public String deleteCustomer(Long customerId, Model model) {
+        this.customerService.deleteCustomerById(customerId);
+        return "redirect:/customers/list";
+    }
+
+    @GetMapping("/edit-customer/{id}")
+    public String viewEditCustomer(@PathVariable Long id, Model model) {
+        Customer customer = this.customerService.getCustomerById(id);
+        System.out.println(customer);
+        model.addAttribute("selectedCustomer", customer);
+        return "/customers/edit";
+    }
+
+    @PostMapping("/update-customer")
+    public String updateCustomer(Customer customer, Model model) {
+        this.customerService.saveOrUpdateCustomer(customer);
+        return "redirect:/customers/list";
+    }
 
 }

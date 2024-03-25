@@ -30,4 +30,6 @@ public class CustomerService {
         this.customerRepo.deleteById(id);
     }
 
+    public Customer getCustomerById(Long id) {return this.customerRepo.getReferenceById(id);}
+
 }
