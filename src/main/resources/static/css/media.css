@@ -1,0 +1,6 @@
+@media screen and (max-width: 800px) {
+    :root {
+        --main-width: 90%;
+        --header-width: 100%;
+    }
+}

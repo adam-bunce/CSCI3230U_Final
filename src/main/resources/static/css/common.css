@@ -1,0 +1,94 @@
+.header {
+    background-color: var(--primary);
+    color: var(--white);
+    height: var(--header-height);
+}
+
+.nav-container {
+    display: flex;
+    width: var(--header-width);
+    margin: auto;
+}
+
+.navbar-right-anchors {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-left: auto;
+}
+
+.navbar-item {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    padding: 0 .75em;
+    justify-content: center;
+    white-space: nowrap;
+    color: var(--white);
+}
+
+.navbar-item:hover {
+    background-color: var(--primary-dark);
+}
+
+.main {
+    width: var(--main-width);
+    margin: auto;
+    padding-top: 35px;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height))
+}
+
+.df {
+    display: flex;
+    align-items: flex-end;
+    align-content: space-between;
+}
+
+.btn {
+    border-radius: 4px;
+    border: solid var(--black) 1px;
+    padding: 6px;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.btn:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.btn-red {
+    background-color: var(--red);
+    color: white;
+    border: solid var(--red) 1px;
+}
+.btn-red:hover {
+    background: var(--white);
+    color: var(--red);
+    border: solid var(--red) 1px;
+}
+
+.customer-card {
+   border: solid var(--secondary-dark) 2px;
+    border-radius: 4px;
+    padding: 1.3em;
+    margin: 1em 0;
+}
+
+.customer-card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
+
+.db {
+    display: block;
+}
+
+.input-text {
+   padding: 4px;
+   border-radius: 4px;
+   margin-bottom: 4px;
+   width: max-content;
+   border: 1px solid var(--secondary-dark);
+}
