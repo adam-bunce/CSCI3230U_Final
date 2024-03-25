@@ -30,9 +30,10 @@ public class Customer {
     }
 
     public Customer() {
-        this.name = "Unknown Customer Name";
-        this.phoneNumber = "Unknown Customer Phone Number";
-        this.email = "unknown@mail.com";
+        // messes w/ creation in forms if populated
+        //        this.name = "Unknown Customer Name";
+        //        this.phoneNumber = "Unknown Customer Phone Number";
+        //        this.email = "unknown@mail.com";
     }
 
     public Long getId() {

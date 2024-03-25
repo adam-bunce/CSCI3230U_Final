@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Title</title>
+</head>
+<body>
+
+<a th:href="@{/create-customer}">Add New Customer</a>
+
+<h1>Customers</h1>
+<div th:each="customer : ${customers}">
+    <p th:text="${customer.toString()}"></p>
+</div>
+
+</body>
+</html>
