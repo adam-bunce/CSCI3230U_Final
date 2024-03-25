@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/customers")
 public class CustomerController {
     CustomerService customerService;
 
@@ -19,31 +21,31 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping("/customers/list")
+    @GetMapping("/list")
     public String viewCustomers(Model model) {
         model.addAttribute("customers", this.customerService.getAllCustomers());
         return "/customers/list";
     }
 
-    @GetMapping("/create-customer")
+    @GetMapping("/create")
     public String viewCreateCustomer(Model model) {
         model.addAttribute("newCustomer", new Customer());
         return "/customers/create";
     }
 
-    @PostMapping("/create-new-customer")
+    @PostMapping("/create")
     public String createCustomer(Customer newCustomer, Model model) {
         this.customerService.saveOrUpdateCustomer(newCustomer);
         return "redirect:/customers/list";
     }
 
-    @PostMapping("/delete-customer")
+    @PostMapping("/delete")
     public String deleteCustomer(Long customerId, Model model) {
         this.customerService.deleteCustomerById(customerId);
         return "redirect:/customers/list";
     }
 
-    @GetMapping("/edit-customer/{id}")
+    @GetMapping("/edit/{id}")
     public String viewEditCustomer(@PathVariable Long id, Model model) {
         Customer customer = this.customerService.getCustomerById(id);
         System.out.println(customer);
@@ -51,7 +53,7 @@ public class CustomerController {
         return "/customers/edit";
     }
 
-    @PostMapping("/update-customer")
+    @PostMapping("/update")
     public String updateCustomer(Customer customer, Model model) {
         this.customerService.saveOrUpdateCustomer(customer);
         return "redirect:/customers/list";
