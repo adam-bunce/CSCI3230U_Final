@@ -2,11 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit | Customers </title>
 
     <link rel="stylesheet" th:href="@{/css/core.css}" />
-    <link rel="stylesheet" th:href="@{/css/media.css}" />
     <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" th:href="@{/css/media.css}" />
 </head>
 <body>
 <header class="header">
@@ -30,15 +31,33 @@
     <h2>Customers</h2>
     <hr>
 
-    <form method="post" th:action="@{/customers/update}" th:object="${selectedCustomer}">
-        <input type="hidden" name="id" th:field="*{id}">
-        <input type="text" name="name" placeholder="Name" th:field="*{name}" aria-label="customer name" class="db input-text">
-        <input type="tel" name="telephone" placeholder="Phone Number" th:field="*{phoneNumber}" aria-label="customer name" class="db input-text">
-        <input type="email" name="email" placeholder="Email" th:field="*{email}" aria-label="customer name" class="db input-text">
-        <input type="submit" value="Update Customer" aria-label="submit" class="btn">
-    </form>
+    <div class="elevated center">
+        <h4> <u> Edit Customer </u></h4>
 
-    <a th:href="@{/customers/list}" class="btn">Cancel</a>
+        <form method="post" th:action="@{/customers/update}" th:object="${selectedCustomer}">
+            <input type="hidden" name="id" th:field="*{id}">
+            <div class="forum-row">
+                <strong>Name:&nbsp;</strong>
+                <input type="text" name="name" placeholder="Name" th:field="*{name}" aria-label="customer name" class="db input-text">
+            </div>
+
+            <div class="forum-row">
+                <strong>Phone #:&nbsp;</strong>
+                <input type="tel" name="telephone" placeholder="Phone Number" th:field="*{phoneNumber}" aria-label="customer name" class="db input-text">
+            </div>
+
+            <div class="forum-row">
+                <strong>Email:&nbsp;</strong>
+                <input type="email" name="email" placeholder="Email" th:field="*{email}" aria-label="customer name" class="db input-text">
+            </div>
+
+            <div class="forum-row">
+                <input type="submit" value="Update" aria-label="submit" class="btn">
+                <a th:href="@{/customers/list}" class="btn-red">Cancel</a>
+            </div>
+        </form>
+    </div>
+
 </main>
 
 </body>

@@ -26,17 +26,34 @@
 </header>
 
 <main class="main">
-    <h3>Create Customer </h3>
+    <h3>Customers </h3>
     <hr>
 
+    <div class="elevated center">
+        <h4> <u> Create Customer </u></h4>
     <form method="post" th:action="@{/customers/create}" th:object="${newCustomer}">
-        <input type="text" name="name" placeholder="Name" th:field="*{name}" aria-label="customer name" class="db input-text">
-        <input type="tel" name="telephone" placeholder="Phone Number" th:field="*{phoneNumber}" aria-label="customer name" class="db input-text">
-        <input type="email" name="email" placeholder="Email" th:field="*{email}" aria-label="customer name" class="db input-text">
-        <input type="submit" value="Create Customer" aria-label="submit" class="btn">
+        <div class="forum-row">
+            <strong>Name:&nbsp;</strong>
+            <input type="text" name="name" placeholder="Name" th:field="*{name}" aria-label="customer name" class="db input-text">
+        </div>
+
+        <div class="forum-row">
+            <strong>Phone #:&nbsp;</strong>
+            <input type="tel" name="telephone" placeholder="Phone Number" th:field="*{phoneNumber}" aria-label="customer name" class="db input-text">
+        </div>
+
+        <div class="forum-row">
+            <strong>Email:&nbsp;</strong>
+            <input type="email" name="email" placeholder="Email" th:field="*{email}" aria-label="customer name" class="db input-text">
+        </div>
+
+        <div class="forum-row">
+            <input type="submit" value="Create Customer" aria-label="submit" class="btn">
+            <a th:href="@{/customers/list}" class="btn-red"> Cancel</a>
+        </div>
     </form>
 
-    <a th:href="@{/customers/list}" class="btn"> Cancel</a>
+    </div>
 
 </main>
 
