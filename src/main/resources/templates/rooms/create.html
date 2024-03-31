@@ -26,30 +26,30 @@
 </header>
 
 <main class="main">
-    <h3>Customers </h3>
+    <h3>Rooms </h3>
     <hr>
 
     <div class="elevated center">
-        <h4> <u> Create Customer </u></h4>
-    <form method="post" th:action="@{/customers/create}" th:object="${newCustomer}">
+        <h4> <u> Create Room </u></h4>
+    <form method="post" th:action="@{/rooms/create}" th:object="${newRoom}">
         <div class="forum-row">
-            <strong>Name:&nbsp;</strong>
-            <input type="text" name="name" placeholder="Name" th:field="*{name}" aria-label="customer name" class="db input-text">
+            <strong>Number:&nbsp;</strong>
+            <input type="text" name="Number" placeholder="Number" th:field="*{roomNumber}" aria-label="Room Number" class="db input-text">
         </div>
 
         <div class="forum-row">
-            <strong>Phone #:&nbsp;</strong>
-            <input type="tel" name="telephone" placeholder="Phone Number" th:field="*{phoneNumber}" aria-label="customer name" class="db input-text">
+            <strong>Type:&nbsp;</strong>
+            <input type="text" name="Type" placeholder="Type" th:field="*{type}" aria-label="Room Type" class="db input-text">
         </div>
 
         <div class="forum-row">
-            <strong>Email:&nbsp;</strong>
-            <input type="email" name="email" placeholder="Email" th:field="*{email}" aria-label="customer name" class="db input-text">
+            <strong>Price:&nbsp;</strong>
+            <input type="text" name="Price" placeholder="Price" th:field="*{price}" aria-label="Room Price" class="db input-text">
         </div>
 
         <div class="forum-row">
-            <input type="submit" value="Create Customer" aria-label="submit" class="btn">
-            <a th:href="@{/customers/list}" class="btn-red"> Cancel</a>
+            <input type="submit" value="Create Room" aria-label="submit" class="btn">
+            <a th:href="@{/rooms/list}" class="btn-red"> Cancel</a>
         </div>
     </form>
 

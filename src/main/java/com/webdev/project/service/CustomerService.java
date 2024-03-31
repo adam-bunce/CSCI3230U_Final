@@ -18,7 +18,6 @@ public class CustomerService {
     }
 
     public Customer saveOrUpdateCustomer(Customer customer) {
-        System.out.println(customer);
         return this.customerRepo.save(customer);
     }
 
