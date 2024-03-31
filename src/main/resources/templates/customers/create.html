@@ -18,8 +18,8 @@
             <div class="navbar-right-anchors">
                 <a th:href="@{/customers/list}" class="navbar-item"> Customers </a>
                 <a th:href="@{/rooms/list}" class="navbar-item"> Rooms </a>
-                <a class="navbar-item"> Bookings </a>
-                <a class="navbar-item"> Services </a>
+                <a th:href="@{/bookings/list}" class="navbar-item"> Bookings </a>
+                <a th:href="@{/services/list}" class="navbar-item"> Services </a>
             </div>
         </div>
     </nav>
@@ -30,7 +30,7 @@
     <hr>
 
     <div class="elevated center">
-        <h4> <u> Create Customer </u></h4>
+        <h4> <u> Create Customers </u></h4>
     <form method="post" th:action="@{/customers/create}" th:object="${newCustomer}">
         <div class="forum-row">
             <strong>Name:&nbsp;</strong>

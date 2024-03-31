@@ -27,23 +27,23 @@
 </header>
 
 <main class="main">
-    <h2>Customers</h2>
+    <h2>Bookings</h2>
     <hr>
 
-    <a th:href="@{/customers/create}" class="btn">Add New Customer</a>
+    <a th:href="@{/bookings/create}" class="btn">Add New Booking</a>
 
     <section class="customer-card-container">
-        <div th:each="customer : ${customers}" class="elevated">
-            <div><strong>Name:</strong> <span th:text="${customer.getName() ?: 'Unknown Name'}"></span></div>
-            <div><strong>Phone Number:</strong> <span th:text="${customer.getPhoneNumber() ?: 'Unknown #'}"></span></div>
-            <div><strong>Email:</strong> <span th:text="${customer.getEmail() ?: 'Unknown Email'}"></span></div>
-            <div><strong>Bookings:</strong> <span th:text="${#arrays.isEmpty(customer.getBookings()) ? 'No Bookings' : customer.bookings}"></span></div>
+        <div th:each="booking : ${bookings}" class="elevated">
+            <div><strong>Start Date:</strong> <span th:text="${booking.getStartDate() ?: 'Unknown Start Date'}"></span></div>
+            <div><strong>End Date:</strong> <span th:text="${booking.getEndDate() ?: 'Unknown End Date'}"></span></div>
+            <div><strong>Customer:</strong> <span th:text="${booking.getCustomer().getName() ?: 'Unknown Customer Name'}"></span></div>
+            <div><strong>Room:</strong> <span th:text="${booking.getRoom().getRoomNumber() ?: 'Unknown Room Number'}"></span></div>
 
-            <form th:action="@{/customers/delete}"  method="post">
-                <input type="hidden" name="customerId" th:value="${customer.id}">
+            <form th:action="@{/bookings/delete}"  method="post">
+                <input type="hidden" name="bookingId" th:value="${booking.id}">
                 <br>
                 <button type="submit" class="btn-red"> Delete</button>
-                <a th:href="@{/customers/edit/{id}(id=${customer.id})}" class="btn">
+                <a th:href="@{/bookings/edit/{id}(id=${booking.id})}" class="btn">
                     Edit
                 </a>
             </form>

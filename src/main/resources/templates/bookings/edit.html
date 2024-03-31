@@ -28,32 +28,47 @@
 </header>
 
 <main class="main">
-    <h2>Customers</h2>
+    <h2>Bookings</h2>
     <hr>
 
     <div class="elevated center">
-        <h4> <u> Edit Customer </u></h4>
+        <h4> <u> Edit Booking </u></h4>
 
-        <form method="post" th:action="@{/customers/update}" th:object="${selectedCustomer}">
+        <form method="post" th:action="@{/bookings/update}" th:object="${selectedBooking}">
             <input type="hidden" name="id" th:field="*{id}">
             <div class="forum-row">
-                <strong>Name:&nbsp;</strong>
-                <input type="text" name="name" placeholder="Name" th:field="*{name}" aria-label="customer name" class="db input-text">
+                <strong>Start Date:&nbsp;</strong>
+                <input type="date" name="startDate" th:field="*{startDate}" aria-label="start date">
             </div>
-
+    
             <div class="forum-row">
-                <strong>Phone #:&nbsp;</strong>
-                <input type="tel" name="telephone" placeholder="Phone Number" th:field="*{phoneNumber}" aria-label="customer name" class="db input-text">
+                <strong>End Date:&nbsp;</strong>
+                <input type="date" name="endDate" placeholder="0000-00-00" th:field="*{endDate}" aria-label="end date">
             </div>
-
+    
             <div class="forum-row">
-                <strong>Email:&nbsp;</strong>
-                <input type="email" name="email" placeholder="Email" th:field="*{email}" aria-label="customer name" class="db input-text">
+                <strong>Customer:&nbsp;</strong>
+                <select th:field="*{customer}">
+                    <option th:each="option : ${customers}"
+                            th:value="${option.id}"
+                            th:text="${option.name}">
+                    </option>
+                </select>
             </div>
-
+    
+            <div class="forum-row">
+                <strong>Room:&nbsp;</strong>
+                <select th:field="*{room}">
+                    <option th:each="option : ${rooms}"
+                            th:value="${option.id}"
+                            th:text="${option.roomNumber}">
+                    </option>
+                </select>
+            </div>
+    
             <div class="forum-row">
                 <input type="submit" value="Update" aria-label="submit" class="btn">
-                <a th:href="@{/customers/list}" class="btn-red">Cancel</a>
+                <a th:href="@{/bookings/list}" class="btn-red"> Cancel</a>
             </div>
         </form>
     </div>
@@ -62,3 +77,4 @@
 
 </body>
 </html>
+

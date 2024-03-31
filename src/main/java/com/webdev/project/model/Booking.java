@@ -98,8 +98,8 @@ public class Booking {
                 "id=" + id +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
-                ", customer=" + customer +
-                ", room=" + room +
+                ", customer=" + customer.getName() +
+                ", room=" + room.getRoomNumber() +
                 ", services=" + services +
                 '}';
     }
