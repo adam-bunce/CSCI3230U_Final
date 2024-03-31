@@ -3,7 +3,7 @@
 <head>
     <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List | Customers </title>
+    <title>List | Rooms </title>
     <link rel="stylesheet" th:href="@{/css/core.css}" />
     <link rel="stylesheet" th:href="@{/css/common.css}" />
     <link rel="stylesheet" th:href="@{/css/media.css}" />
@@ -27,23 +27,21 @@
 </header>
 
 <main class="main">
-    <h2>Customers</h2>
+    <h2>Rooms</h2>
     <hr>
-
-    <a th:href="@{/customers/create}" class="btn">Add New Customer</a>
-
+    <a th:href="@{/rooms/create}" class="btn">Add New Room</a>
     <section class="customer-card-container">
-        <div th:each="customer : ${customers}" class="elevated">
-            <div><strong>Name:</strong> <span th:text="${customer.getName() ?: 'Unknown Name'}"></span></div>
-            <div><strong>Phone Number:</strong> <span th:text="${customer.getPhoneNumber() ?: 'Unknown #'}"></span></div>
-            <div><strong>Email:</strong> <span th:text="${customer.getEmail() ?: 'Unknown Email'}"></span></div>
-            <div><strong>Bookings:</strong> <span th:text="${#arrays.isEmpty(customer.getBookings()) ? 'No Bookings' : customer.bookings}"></span></div>
+        <div th:each="room : ${rooms}" class="elevated">
+            <div><strong>Room Number:</strong> <span th:text="${room.getRoomNumber() ?: 'Unknown Name'}"></span></div>
+            <div><strong>Type:</strong> <span th:text="${room.getType() ?: 'Unknown #'}"></span></div>
+            <div><strong>Price:</strong> <span th:text="${room.getPrice() ?: 'Unknown Email'}"></span></div>
+            <div><strong>Bookings:</strong> <span th:text="${#arrays.isEmpty(room.getBookings()) ? 'No Bookings' : room.bookings}"></span></div>
 
-            <form th:action="@{/customers/delete}"  method="post">
-                <input type="hidden" name="customerId" th:value="${customer.id}">
+            <form th:action="@{/rooms/delete}"  method="post">
+                <input type="hidden" name="roomID" th:value="${room.id}">
                 <br>
                 <button type="submit" class="btn-red"> Delete</button>
-                <a th:href="@{/customers/edit/{id}(id=${customer.id})}" class="btn">
+                <a th:href="@{/rooms/edit/{id}(id=${room.id})}" class="btn">
                     Edit
                 </a>
             </form>
