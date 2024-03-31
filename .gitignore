@@ -34,4 +34,4 @@ build/
 .DS_Store
 
 # Ignore application.properties
-src/resources/application.properties
+src/main/resources/application.properties
