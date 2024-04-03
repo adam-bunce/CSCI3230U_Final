@@ -22,7 +22,7 @@ public class Room {
     private Double price;
 
     // Room is associated with booking(s)
-    @OneToMany(mappedBy = "room")
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
     private List<Booking> bookings;
 
     public Room(String roomNumber, String type, Double price) {
@@ -32,9 +32,9 @@ public class Room {
     }
 
     public Room() {
-        this.roomNumber = "Unknown Room Number";
-        this.type = "Unknown Type";
-        this.price = -1.0;
+//        this.roomNumber = "Unknown Room Number";
+//        this.type = "Unknown Type";
+//        this.price = -1.0;
     }
 
     public Long getId() {

@@ -33,13 +33,13 @@
     <a th:href="@{/bookings/create}" class="btn">Add New Booking</a>
 
     <section class="customer-card-container">
-        <div th:each="booking : ${bookings}" class="elevated">
+        <div th:each="booking : ${bookings}" class="elevated dfc">
             <div><strong>Start Date:</strong> <span th:text="${booking.getStartDate() ?: 'Unknown Start Date'}"></span></div>
             <div><strong>End Date:</strong> <span th:text="${booking.getEndDate() ?: 'Unknown End Date'}"></span></div>
             <div><strong>Customer:</strong> <span th:text="${booking.getCustomer().getName() ?: 'Unknown Customer Name'}"></span></div>
             <div><strong>Room:</strong> <span th:text="${booking.getRoom().getRoomNumber() ?: 'Unknown Room Number'}"></span></div>
 
-            <form th:action="@{/bookings/delete}"  method="post">
+            <form th:action="@{/bookings/delete}"  method="post" class="take-height">
                 <input type="hidden" name="bookingId" th:value="${booking.id}">
                 <br>
                 <button type="submit" class="btn-red"> Delete</button>

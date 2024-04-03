@@ -31,7 +31,7 @@
     <hr>
     <a th:href="@{/rooms/create}" class="btn">Add New Room</a>
     <section class="customer-card-container">
-        <div th:each="room : ${rooms}" class="elevated">
+        <div th:each="room : ${rooms}" class="elevated dfc">
             <div><strong>Room Number:</strong> <span th:text="${room.getRoomNumber() ?: 'Unknown Name'}"></span></div>
             <div><strong>Type:</strong> <span th:text="${room.getType() ?: 'Unknown #'}"></span></div>
             <div><strong>Price:</strong> <span th:text="${room.getPrice() ?: 'Unknown Email'}"></span></div>
@@ -40,7 +40,7 @@
                 th:utext="${'Booking ' + booking.getId() + '&lt;br&gt;' + 'Customer: ' + booking.getCustomer().getName() + '&lt;br&gt;' + booking.startToEnd() + '&lt;br&gt;'}">
             </span>
             
-            <form th:action="@{/rooms/delete}"  method="post">
+            <form th:action="@{/rooms/delete}"  method="post" class="take-height">
                 <input type="hidden" name="roomID" th:value="${room.id}">
                 <br>
                 <button type="submit" class="btn-red"> Delete</button>

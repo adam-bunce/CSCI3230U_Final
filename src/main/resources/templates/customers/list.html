@@ -33,7 +33,7 @@
     <a th:href="@{/customers/create}" class="btn">Add New Customer</a>
 
     <section class="customer-card-container">
-        <div th:each="customer : ${customers}" class="elevated">
+        <div th:each="customer : ${customers}" class="elevated dfc">
             <div><strong>Name:</strong> <span th:text="${customer.getName() ?: 'Unknown Name'}"></span></div>
             <div><strong>Phone Number:</strong> <span th:text="${customer.getPhoneNumber() ?: 'Unknown #'}"></span></div>
             <div><strong>Email:</strong> <span th:text="${customer.getEmail() ?: 'Unknown Email'}"></span></div>
@@ -43,7 +43,7 @@
             </span>
 
 
-            <form th:action="@{/customers/delete}"  method="post">
+            <form th:action="@{/customers/delete}"  method="post" class="take-height">
                 <input type="hidden" name="customerId" th:value="${customer.id}">
                 <br>
                 <button type="submit" class="btn-red"> Delete</button>

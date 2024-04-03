@@ -20,7 +20,7 @@ public class Customer {
     private String email;
 
     // customer can have many bookings
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Booking> bookings;
 
     public Customer(String name, String phoneNumber, String email) {
