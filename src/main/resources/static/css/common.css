@@ -121,3 +121,13 @@
     margin-top: auto;
 }
 
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: .85rem;
+    background-color: var(--secondary-medium);
+    height: var(--footer-height);
+}

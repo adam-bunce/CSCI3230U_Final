@@ -7,6 +7,15 @@
     .customer-card-container {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .w-30, .w-50 {
+        width: 100%;
+        margin-top: 2em;
+    }
+
+    .df {
+        flex-direction: column;
+    }
 }
 
 

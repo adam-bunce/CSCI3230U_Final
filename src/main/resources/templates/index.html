@@ -32,13 +32,14 @@
    <section class="df space-between">
        <div class="w-50">
            <h1>Booking Thing</h1>
+           <hr>
            <br>
-           <div>
+           <div class="lh-1-7">
                Effortlessly manage your hotel's bookings with our intuitive homepage management tool, designed to simplify the process of reserving rooms for your guests. With real-time availability updates and an easy-to-navigate interface, our system ensures that booking rooms is a seamless experience, reducing the time and hassle involved in accommodation management. Enhance your guest's satisfaction and streamline your hotel operations, all from one centralized platform, making it easier than ever to accommodate guests' needs and preferences.
            </div>
        </div>
 
-       <img th:src="@{/images/main_img.webp}" alt="icon" width="500"/>
+       <img th:src="@{/images/main_img.webp}" alt="hotel image" class="w-50"/>
    </section>
 
     <section class="df mt-5 space">
@@ -46,22 +47,37 @@
         <div class="w-30 elevated">
             <h3 class="center">View Current Bookings</h3>
             <p>
-                Stay on top of guest accommodations with a single glance. Click ‘View Bookings’ to monitor current reservations and ensure a delightful experience for every guest.
+                Stay on top of guest accommodations with a single glance. Click <span class="emphasis">View Bookings</span> to monitor current reservations and ensure a delightful experience for every guest.
             </p>
+            <br>
             <br>
             <a th:href="@{/bookings/list}" class="btn">View Bookings</a>
         </div>
 
         <div class="w-30 elevated">
             <h3 class="center">View Offered Rooms</h3>
+            <p>
+                Discover the perfect room for every guest. From cozy singles to luxurious suites, our room portfolio offers a glimpse into comfort and style. Click <span class="emphasis">View Rooms </span> to navigate through our selections and find the best fit for your guests’ needs
+            </p>
+            <br>
+            <a th:href="@{/rooms/list}" class="btn">View Rooms</a>
         </div>
+
         <div class="w-30 elevated">
             <h3 class="center">View Our Provided Services</h3>
+            <p>Indulge in the array of exquisite services we offer. From the relaxing spa to our vibrant poolside delights, explore and manage them all with ease. Click <span class="emphasis">View Services</span> to elevate your guests' experience and showcase the luxury that awaits</p>
+            <br>
+            <a th:href="@{/services/list}" class="btn">View Services</a>
         </div>
-
     </section>
-
-
+    <br>
+    <br>
 </main>
+
+
+<footer class="footer">
+    Booking Thing
+</footer>
+
 </body>
 </html>

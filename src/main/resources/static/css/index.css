@@ -32,4 +32,13 @@
 }
 
 .emphasis {
+    color: var(--primary)
+}
+
+.lh-1-7 {
+    line-height: 1.7em;
+}
+
+.w-mc {
+    width: max-content;
 }
