@@ -39,7 +39,7 @@ public class ProvidedServiceController {
         return "redirect:/services/list";
     }
 
-    @GetMapping("/delete")
+    @PostMapping("/delete")
     public String deleteService(Long serviceId, Model model) {
         this.serviceService.deleteByServiceId(serviceId);
         return "redirect:/services/list";

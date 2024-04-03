@@ -1,10 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit | Customers </title>
+
+  <link rel="stylesheet" th:href="@{/css/core.css}" />
+  <link rel="stylesheet" th:href="@{/css/common.css}" />
+  <link rel="stylesheet" th:href="@{/css/media.css}" />
 </head>
+
 <body>
+  <header class="header">
+    <nav>
+      <div class="nav-container">
+        <a th:href="@{/}" class="navbar-item">
+          <img th:src="@{/images/icon.svg}" alt="icon" />
+        </a>
+
+        <div class="navbar-right-anchors">
+          <a th:href="@{/customers/list}" class="navbar-item"> Customers </a>
+          <a th:href="@{/rooms/list}" class="navbar-item"> Rooms </a>
+          <a th:href="@{/bookings/list}" class="navbar-item"> Bookings </a>
+          <a th:href="@{/services/list}" class="navbar-item"> Services </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main">
+    <h2>Services</h2>
+    <hr>
+
+    <div class="elevated center">
+      <h4> <u> Edit Service </u></h4>
+
+      <form method="post" th:action="@{/services/update}" th:object="${selectedService}">
+        <input type="hidden" name="id" th:field="*{id}">
+        <div class="forum-row">
+          <strong>Name:&nbsp;</strong>
+          <input type="text" name="name" placeholder="Name" th:field="*{name}" aria-label="service name"
+            class="db input-text">
+        </div>
+
+        <div class="forum-row">
+          <strong>Description:&nbsp;</strong>
+          <input type="text" name="description" placeholder="Description" th:field="*{description}"
+            aria-label="service description" class="db input-text">
+        </div>
+
+        <div class="forum-row">
+          <strong>Price:&nbsp;</strong>
+          <input type="number" min="0" step="any" name="Price" placeholder="Price" th:field="*{price}"
+            aria-label="service price" class="db input-text">
+        </div>
+
+        <div class="forum-row">
+          <input type="submit" value="Update" aria-label="submit" class="btn">
+          <a th:href="@{/services/list}" class="btn-red">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    Booking Thing
+  </footer>
 
 </body>
+
 </html>

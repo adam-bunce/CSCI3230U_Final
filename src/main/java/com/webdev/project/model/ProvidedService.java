@@ -30,9 +30,9 @@ public class ProvidedService {
     }
 
     public ProvidedService() {
-       this.name = "Unknown Service Name";
-       this.description = "Unknown Service Description";
-       this.price = -0.1;
+//       this.name = "Unknown Service Name";
+//       this.description = "Unknown Service Description";
+//       this.price = -0.1;
     }
 
     public Long getId() {
