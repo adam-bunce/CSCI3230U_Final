@@ -37,7 +37,11 @@
             <div><strong>Name:</strong> <span th:text="${customer.getName() ?: 'Unknown Name'}"></span></div>
             <div><strong>Phone Number:</strong> <span th:text="${customer.getPhoneNumber() ?: 'Unknown #'}"></span></div>
             <div><strong>Email:</strong> <span th:text="${customer.getEmail() ?: 'Unknown Email'}"></span></div>
-            <div><strong>Bookings:</strong> <span th:text="${#arrays.isEmpty(customer.getBookings()) ? 'No Bookings' : customer.bookings}"></span></div>
+            <div><strong>Bookings: </strong><span th:if="${#arrays.isEmpty(customer.getBookings())}">No Bookings</span></div>
+            <span th:each="booking : ${customer.getBookings()}" 
+                th:utext="${booking.numberAndRoom() + '&lt;br&gt;' + booking.startToEnd()}">
+            </span>
+
 
             <form th:action="@{/customers/delete}"  method="post">
                 <input type="hidden" name="customerId" th:value="${customer.id}">

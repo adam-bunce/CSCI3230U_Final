@@ -92,6 +92,14 @@ public class Booking {
         this.services = services;
     }
 
+    public String numberAndRoom() {
+        return "Booking " + id + " - " + "Room " + room.getRoomNumber();
+    }
+
+    public String startToEnd() {
+        return startDate + " to " + endDate;
+    }
+
     @Override
     public String toString() {
         return "Booking{" +
