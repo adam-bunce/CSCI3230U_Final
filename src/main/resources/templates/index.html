@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" th:href="@{/css/core.css}" />
     <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
     <link rel="stylesheet" th:href="@{/css/media.css}" />
 </head>
 <body>
@@ -27,7 +28,40 @@
     </nav>
 </header>
 <main class="main">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad corporis earum error fugiat incidunt iure recusandae repellat sunt totam ut! Animi aperiam eos, quas quia reprehenderit rerum sequi soluta voluptatem.
+
+   <section class="df space-between">
+       <div class="w-50">
+           <h1>Booking Thing</h1>
+           <br>
+           <div>
+               Effortlessly manage your hotel's bookings with our intuitive homepage management tool, designed to simplify the process of reserving rooms for your guests. With real-time availability updates and an easy-to-navigate interface, our system ensures that booking rooms is a seamless experience, reducing the time and hassle involved in accommodation management. Enhance your guest's satisfaction and streamline your hotel operations, all from one centralized platform, making it easier than ever to accommodate guests' needs and preferences.
+           </div>
+       </div>
+
+       <img th:src="@{/images/main_img.webp}" alt="icon" width="500"/>
+   </section>
+
+    <section class="df mt-5 space">
+
+        <div class="w-30 elevated">
+            <h3 class="center">View Current Bookings</h3>
+            <p>
+                Stay on top of guest accommodations with a single glance. Click ‘View Bookings’ to monitor current reservations and ensure a delightful experience for every guest.
+            </p>
+            <br>
+            <a th:href="@{/bookings/list}" class="btn">View Bookings</a>
+        </div>
+
+        <div class="w-30 elevated">
+            <h3 class="center">View Offered Rooms</h3>
+        </div>
+        <div class="w-30 elevated">
+            <h3 class="center">View Our Provided Services</h3>
+        </div>
+
+    </section>
+
+
 </main>
 </body>
 </html>
