@@ -1,5 +1,6 @@
 package com.webdev.project.controller;
 
+import com.webdev.project.service.ProvidedServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,13 +20,15 @@ public class BookingController {
     BookingService bookingService;
     CustomerService customerService;
     RoomService roomService;
+    ProvidedServiceService serviceService;
 
     @Autowired
-    public BookingController(BookingService bookingService, CustomerService customerService, RoomService roomService) {
+    public BookingController(BookingService bookingService, CustomerService customerService, RoomService roomService, ProvidedServiceService serviceService) {
         super();
         this.bookingService = bookingService;
         this.customerService = customerService;
         this.roomService = roomService;
+        this.serviceService = serviceService;
     }
 
     @GetMapping("/list")
@@ -39,6 +42,7 @@ public class BookingController {
         model.addAttribute("newBooking", new Booking());
         model.addAttribute("customers", customerService.getAllCustomers());
         model.addAttribute("rooms", roomService.getAllRooms());
+        model.addAttribute("services", serviceService.getAllServices());
         return "/bookings/create";
     }
 
@@ -61,6 +65,7 @@ public class BookingController {
         model.addAttribute("selectedBooking", booking);
         model.addAttribute("customers", customerService.getAllCustomers());
         model.addAttribute("rooms", roomService.getAllRooms());
+        model.addAttribute("services", serviceService.getAllServices());
         return "/bookings/edit";
     }
 
