@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Title</title>
+    <title>Create Room</title>
     <link rel="stylesheet" th:href="@{/css/core.css}" />
     <link rel="stylesheet" th:href="@{/css/media.css}" />
     <link rel="stylesheet" th:href="@{/css/common.css}" />
@@ -18,8 +18,8 @@
             <div class="navbar-right-anchors">
                 <a th:href="@{/customers/list}" class="navbar-item"> Customers </a>
                 <a th:href="@{/rooms/list}" class="navbar-item"> Rooms </a>
-                <a class="navbar-item"> Bookings </a>
-                <a class="navbar-item"> Services </a>
+                <a th:href="@{/bookings/list}" class="navbar-item"> Bookings </a>
+                <a th:href="@{/services/list}" class="navbar-item"> Services </a>
             </div>
         </div>
     </nav>

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.webdev.project.model.Customer;
 import com.webdev.project.model.Room;
 import com.webdev.project.service.RoomService;
 

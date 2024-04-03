@@ -19,8 +19,8 @@
             <div class="navbar-right-anchors">
                 <a th:href="@{/customers/list}" class="navbar-item"> Customers </a>
                 <a th:href="@{/rooms/list}" class="navbar-item"> Rooms </a>
-                <a class="navbar-item"> Bookings </a>
-                <a class="navbar-item"> Services </a>
+                <a th:href="@{/bookings/list}" class="navbar-item"> Bookings </a>
+                <a th:href="@{/services/list}" class="navbar-item"> Services </a>
             </div>
         </div>
     </nav>
@@ -35,8 +35,11 @@
             <div><strong>Room Number:</strong> <span th:text="${room.getRoomNumber() ?: 'Unknown Name'}"></span></div>
             <div><strong>Type:</strong> <span th:text="${room.getType() ?: 'Unknown #'}"></span></div>
             <div><strong>Price:</strong> <span th:text="${room.getPrice() ?: 'Unknown Email'}"></span></div>
-            <div><strong>Bookings:</strong> <span th:text="${#arrays.isEmpty(room.getBookings()) ? 'No Bookings' : room.bookings}"></span></div>
-
+            <div><strong>Bookings: </strong><span th:if="${#arrays.isEmpty(room.getBookings())}">No Bookings</span></div>
+            <span th:each="booking : ${room.getBookings()}" 
+                th:utext="${'Booking ' + booking.getId() + '&lt;br&gt;' + 'Customer: ' + booking.getCustomer().getName() + '&lt;br&gt;' + booking.startToEnd() + '&lt;br&gt;'}">
+            </span>
+            
             <form th:action="@{/rooms/delete}"  method="post">
                 <input type="hidden" name="roomID" th:value="${room.id}">
                 <br>

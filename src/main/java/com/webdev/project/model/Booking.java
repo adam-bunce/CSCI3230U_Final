@@ -93,7 +93,7 @@ public class Booking {
     }
 
     public String numberAndRoom() {
-        return "Booking " + id + " - " + "Room " + room.getRoomNumber();
+        return "Booking " + id + " - " + "Room " + room.getRoomNumber() ;
     }
 
     public String startToEnd() {
