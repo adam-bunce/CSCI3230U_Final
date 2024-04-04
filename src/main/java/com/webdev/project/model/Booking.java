@@ -27,7 +27,7 @@ public class Booking {
     @JoinColumn(name = "room_id")
     private Room room;
 
-    @OneToMany(mappedBy = "booking")
+    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
     private List<ProvidedService> services;
 
     public Booking(LocalDate startDate, LocalDate endDate, Customer customer, Room room) {

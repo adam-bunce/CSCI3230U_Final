@@ -51,10 +51,10 @@
         </div>
         <div>
           <strong>Services: </strong><span th:if="${#arrays.isEmpty(booking.getServices())}">No Services</span>
+          <span th:each="service: ${booking.getServices()}"
+                th:utext="${service.getName() + ' - ' + service.getDescription() + '&lt;br&gt;'}">
+          </span>
         </div>
-        <span th:each="service: ${booking.getServices()}"
-          th:utext="${service.getName() + '&lt;br&gt;' + service.getDescription()}">
-        </span>
 
         <form th:action="@{/bookings/delete}" method="post" class="take-height">
           <input type="hidden" name="bookingId" th:value="${booking.id}">

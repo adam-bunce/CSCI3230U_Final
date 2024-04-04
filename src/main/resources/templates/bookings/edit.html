@@ -66,10 +66,11 @@
 
         <div class="forum-row">
           <strong>Services:&nbsp;</strong>
-          <select multiple th:field="*{services}">
-            <option th:each="option : ${services}" th:value="${option.id}" th:text="${option.name}">
-            </option>
-          </select>
+          <select multiple="multiple" id="selectedServices" name="selectedServices">
+            <option th:each="option : ${services}"
+                    th:value="${option.id}"
+                    th:text="${option.name}"></option>
+            </select>
         </div>
 
         <div class="forum-row">

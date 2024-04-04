@@ -1,13 +1,18 @@
 package com.webdev.project.controller;
 
 import com.webdev.project.service.ProvidedServiceService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.webdev.project.model.Booking;
 import com.webdev.project.service.BookingService;
@@ -34,6 +39,7 @@ public class BookingController {
     @GetMapping("/list")
     public String viewBookings(Model model) {
         model.addAttribute("bookings", this.bookingService.getAllBookings());
+        System.out.println(this.bookingService.getAllBookings());
         return "/bookings/list";
     }
 
@@ -47,8 +53,8 @@ public class BookingController {
     }
 
     @PostMapping("/create")
-    public String createBooking(Booking newBooking, Model model) {
-        this.bookingService.saveOrUpdateBooking(newBooking);
+    public String createBooking(@ModelAttribute("newBooking") Booking newBooking, @RequestParam("selectedServices") List<Long> selectedServiceIds, Model model) {
+        this.bookingService.saveOrUpdateBooking(newBooking, selectedServiceIds);
         return "redirect:/bookings/list";
     }
 
@@ -70,8 +76,8 @@ public class BookingController {
     }
 
     @PostMapping("/update")
-    public String updateBooking(Booking booking, Model model) {
-        this.bookingService.saveOrUpdateBooking(booking);
+    public String updateBooking(@ModelAttribute("selectedBooking") Booking booking, @RequestParam("selectedServices") List<Long> selectedServiceIds, Model model) {
+        this.bookingService.saveOrUpdateBooking(booking, selectedServiceIds);
         return "redirect:/bookings/list";
     }
 

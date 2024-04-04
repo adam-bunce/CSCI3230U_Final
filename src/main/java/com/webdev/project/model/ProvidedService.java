@@ -82,7 +82,7 @@ public class ProvidedService {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", booking=" + booking +
+                ", booking=" + booking.getId() +
                 '}';
     }
 }
