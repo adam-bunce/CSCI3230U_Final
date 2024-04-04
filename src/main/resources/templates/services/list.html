@@ -48,7 +48,9 @@
           <span th:if="${service.getPrice() == null}" th:text="Unknown Price"></span>
         </div>
         <div>
-          <strong>Booking: </strong><span th:text="${service.getBooking().numberAndRoom() ?: 'Unknown Booking'}"></span>
+          <strong>Booking: </strong>
+          <span th:if="${service.getBooking() != null}" th:text="${service.getBooking().numberAndRoom()}"></span>
+          <span th:if="${service.getBooking() == null}" th:text="'No Bookings'"></span>
         </div>
 
         <form th:action="@{/services/delete}" method="post" class="take-height">

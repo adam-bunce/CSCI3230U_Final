@@ -2,6 +2,7 @@ package com.webdev.project.controller;
 
 import com.webdev.project.service.ProvidedServiceService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.webdev.project.model.Booking;
+import com.webdev.project.model.ProvidedService;
 import com.webdev.project.service.BookingService;
 import com.webdev.project.service.CustomerService;
 import com.webdev.project.service.RoomService;
@@ -48,7 +50,16 @@ public class BookingController {
         model.addAttribute("newBooking", new Booking());
         model.addAttribute("customers", customerService.getAllCustomers());
         model.addAttribute("rooms", roomService.getAllRooms());
-        model.addAttribute("services", serviceService.getAllServices());
+
+        List<ProvidedService> availableServices = new ArrayList<>();
+        for(ProvidedService service: serviceService.getAllServices()) {
+            if(null == service.getBooking()) {
+                availableServices.add(service);
+            }
+        }
+        
+
+        model.addAttribute("services", availableServices);
         return "/bookings/create";
     }
 
@@ -71,7 +82,15 @@ public class BookingController {
         model.addAttribute("selectedBooking", booking);
         model.addAttribute("customers", customerService.getAllCustomers());
         model.addAttribute("rooms", roomService.getAllRooms());
-        model.addAttribute("services", serviceService.getAllServices());
+        List<ProvidedService> availableServices = new ArrayList<>();
+        for(ProvidedService service: serviceService.getAllServices()) {
+            if(null == service.getBooking() || service.getBooking().getId() == booking.getId()) {
+                availableServices.add(service);
+            }
+        }
+        
+
+        model.addAttribute("services", availableServices);
         return "/bookings/edit";
     }
 
