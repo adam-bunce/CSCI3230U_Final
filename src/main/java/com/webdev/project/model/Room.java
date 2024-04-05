@@ -25,18 +25,16 @@ public class Room {
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
     private List<Booking> bookings;
 
+    //Room Model Constructors 
     public Room(String roomNumber, String type, Double price) {
         this.roomNumber = roomNumber;
         this.type = type;
         this.price = price;
     }
+    
+    public Room() {};
 
-    public Room() {
-//        this.roomNumber = "Unknown Room Number";
-//        this.type = "Unknown Type";
-//        this.price = -1.0;
-    }
-
+    // Getter and Setters for All
     public Long getId() {
         return id;
     }
@@ -77,6 +75,7 @@ public class Room {
         this.bookings = bookings;
     }
 
+    //To-String Override
     @Override
     public String toString() {
         return "Room{" +
