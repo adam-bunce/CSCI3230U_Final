@@ -17,18 +17,22 @@ public class CustomerService {
         this.customerRepo = repo;
     }
 
+    // create or update customer in db
     public Customer saveOrUpdateCustomer(Customer customer) {
         return this.customerRepo.save(customer);
     }
 
+    // get all customers in db
     public List<Customer> getAllCustomers() {
         return this.customerRepo.findAll();
     }
 
+    // remove customer from db
     public void deleteCustomerById(Long id) {
         this.customerRepo.deleteById(id);
     }
 
+    // get specific customer based on id
     public Customer getCustomerById(Long id) {return this.customerRepo.getReferenceById(id);}
 
 }
