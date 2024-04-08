@@ -15,3 +15,10 @@ in the top right of Intellij Idea, or by right clicking __pom.xml__ and under Ma
 your web browser of choice should display the _index.html_ page below. (might need to add port if not set to 80 in _application.properties_ file)
  
 ![img.png](img.png) 
+
+
+## Group
+- Adam Bunce
+- Anthony Matheou
+- Kishore Muralitharan
+- Shayan Rashid
