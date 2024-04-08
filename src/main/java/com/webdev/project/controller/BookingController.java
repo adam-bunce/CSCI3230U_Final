@@ -4,6 +4,7 @@ import com.webdev.project.service.ProvidedServiceService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -64,7 +65,7 @@ public class BookingController {
     }
 
     @PostMapping("/create")
-    public String createBooking(@ModelAttribute("newBooking") Booking newBooking, @RequestParam("selectedServices") List<Long> selectedServiceIds, Model model) {
+    public String createBooking(@ModelAttribute("newBooking") Booking newBooking, @RequestParam("selectedServices") Optional<List<Long>> selectedServiceIds, Model model) {
         this.bookingService.saveOrUpdateBooking(newBooking, selectedServiceIds);
         return "redirect:/bookings/list";
     }
@@ -95,7 +96,7 @@ public class BookingController {
     }
 
     @PostMapping("/update")
-    public String updateBooking(@ModelAttribute("selectedBooking") Booking booking, @RequestParam("selectedServices") List<Long> selectedServiceIds, Model model) {
+    public String updateBooking(@ModelAttribute("selectedBooking") Booking booking, @RequestParam("selectedServices") Optional<List<Long>> selectedServiceIds, Model model) {
         this.bookingService.saveOrUpdateBooking(booking, selectedServiceIds);
         return "redirect:/bookings/list";
     }

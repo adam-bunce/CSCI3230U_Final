@@ -5,7 +5,9 @@ import com.webdev.project.repo.BookingRepo;
 import com.webdev.project.repo.ProvidedServiceRepo;
 import com.webdev.project.model.ProvidedService;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,8 +29,8 @@ public class BookingService {
         return new Booking();
     }
 
-    public Booking saveOrUpdateBooking(Booking booking, List<Long> selectedServiceIds) {
-        List<ProvidedService> selectedServices = serviceRepo.findAllById(selectedServiceIds);
+    public Booking saveOrUpdateBooking(Booking booking, Optional<List<Long>> selectedServiceIds) {
+        List<ProvidedService> selectedServices = serviceRepo.findAllById(selectedServiceIds.orElse(Collections.emptyList()));
         booking.setServices(selectedServices);
         for (ProvidedService providedService : selectedServices) {
             providedService.setBooking(booking);
